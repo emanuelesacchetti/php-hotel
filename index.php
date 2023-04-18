@@ -76,61 +76,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr  <?php foreach($hotels as $key => $singleHotel); ?>>
-
-                <th scope="row">
-                    <?php echo $singleHotel['name']?>
-                </th>
-                <td>
-                    <?php echo $singleHotel['description']?>
-                </td>
-                <td>
-                    <?php echo $singleHotel['parking']?>
-                </td>
-                <td>
-                    <?php echo $singleHotel['vote']?>
-                </td>
-                <td>
-                    <?php echo $singleHotel['distance_to_center']?>
-                </td>
-
-            </tr>
-            
-            <tr  <?php for($i = 0; $i < count($hotels); $i++); ?>>
-                <th scope="row">
-                    <?php echo $hotels[$i]['name']?>
-                </th>
-                <td>
-                    <?php echo $hotels[$i]['description']?>
-                </td>
-                <td>
-                    <?php echo $hotels[$i]['parking']?>
-                </td>
-                <td>
-                    <?php echo $hotels[$i]['vote']?>
-                </td>
-                <td>
-                    <?php echo $hotels[$i]['distance_to_center']?>
-                </td>
-
-            </tr>
-            
-            <!--
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-            </tr>
-            -->
+            <?php foreach($hotels as $key => $singleHotel){
+                echo '<tr>'. '<br>' . 
+                        "<th scope='row'>" . $singleHotel['name'] . '</th>' . 
+                        "<td>" . $singleHotel['description'] . '</td>' . 
+                        "<td>" . $singleHotel['parking'] . '</td>' . 
+                        "<td>" . $singleHotel['vote'] . '</td>' . 
+                        "<td>" . $singleHotel['distance_to_center'] . '</td>' . 
+                     '</tr>';
+                //<tr><th scope='row'>$singleHotel['name']</th>;
+            }?>
         </tbody>
         </table>
     </div>
