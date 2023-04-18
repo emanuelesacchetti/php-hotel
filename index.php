@@ -40,11 +40,13 @@
 
     ];
 
+    /*
     foreach($hotels as $key => $singleHotel){
         foreach($singleHotel as $chiave => $valore){
             echo $chiave . ':' . $valore . '<br>';
         };
     };
+    */
     
 ?>
 
@@ -64,7 +66,42 @@
     </style>
 </head>
 <body>
+
     <div class="cont">
+
+        <form action="" method="GET">
+            <label for="parcheggio">Parcheggio</label>
+            <select id='parcheggio' name='parcheggio'>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+                <option value="" selected></option>
+            </select>
+
+            <label for="voto">Voto</label>
+            <input type="number" name="voto" id="voto">
+
+            <button type="submit">invia</button>
+            <button type="reset">resetta</button>
+        </form>
+
+
+        <?php
+
+            $parcheggio = $_GET['parcheggio'];
+            $voto = $_GET['voto'];
+            var_dump($parcheggio);
+            var_dump($voto);
+
+            if (empty($data)) {
+                echo "nessun elemento get";
+            } else {
+                foreach($data as $chiave => $valore) {
+                    echo 'Chiave: ' . $chiave . ' - Valore ' . $valore . '<br/>';
+                }
+            }
+
+        ?>
+
         <table class="table table-striped">
         <thead>
             <tr>
@@ -76,7 +113,30 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($hotels as $key => $singleHotel){
+            <?php 
+            /*
+            if($parcheggio == 'si'){
+                echo '<tr>'. '<br>' . 
+                            "<th scope='row'>" . $singleHotel['name'] . '</th>' . 
+                            "<td>" . $singleHotel['description'] . '</td>' . 
+                            "<td>" . isset($parcheggio == si)? $singleHotel['parking']:'' . '</td>' . 
+                            "<td>" . $singleHotel['vote'] . '</td>' . 
+                            "<td>" . $singleHotel['distance_to_center'] . '</td>' . 
+                         '</tr>';
+            }
+                {
+                foreach($hotels as $key => $singleHotel){
+                    echo '<tr>'. '<br>' . 
+                            "<th scope='row'>" . $singleHotel['name'] . '</th>' . 
+                            "<td>" . $singleHotel['description'] . '</td>' . 
+                            "<td>" . $singleHotel['parking'] . '</td>' . 
+                            "<td>" . $singleHotel['vote'] . '</td>' . 
+                            "<td>" . $singleHotel['distance_to_center'] . '</td>' . 
+                         '</tr>';
+                }
+            }elseif()
+            */
+            foreach($hotels as $key => $singleHotel){
                 echo '<tr>'. '<br>' . 
                         "<th scope='row'>" . $singleHotel['name'] . '</th>' . 
                         "<td>" . $singleHotel['description'] . '</td>' . 
@@ -84,8 +144,9 @@
                         "<td>" . $singleHotel['vote'] . '</td>' . 
                         "<td>" . $singleHotel['distance_to_center'] . '</td>' . 
                      '</tr>';
-                //<tr><th scope='row'>$singleHotel['name']</th>;
-            }?>
+            }
+            
+            ?>
         </tbody>
         </table>
     </div>
